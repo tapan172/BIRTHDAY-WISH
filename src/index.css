@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Birthday Theme Design System */
+@layer base {
+  :root {
+    /* Birthday Theme Colors */
+    --background: 340 30% 98%;
+    --foreground: 340 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 15% 15%;
+
+    --primary: 320 60% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 60% 80%;
+    --secondary-foreground: 340 15% 15%;
+
+    --muted: 340 15% 95%;
+    --muted-foreground: 340 10% 45%;
+
+    --accent: 280 50% 75%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 340 20% 90%;
+    --input: 340 20% 95%;
+    --ring: 320 60% 65%;
+
+    --radius: 1rem;
+
+    /* Birthday Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(320 60% 75%), hsl(200 60% 80%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 50% 85%), hsl(340 50% 85%));
+    --gradient-hero: linear-gradient(135deg, hsl(320 40% 90%) 0%, hsl(200 40% 95%) 50%, hsl(280 30% 95%) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-polaroid: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Birthday Theme Colors */
+    --background: 340 20% 8%;
+    --foreground: 340 15% 92%;
+
+    --card: 340 15% 12%;
+    --card-foreground: 340 15% 92%;
+
+    --popover: 340 15% 12%;
+    --popover-foreground: 340 15% 92%;
+
+    --primary: 320 60% 70%;
+    --primary-foreground: 340 20% 8%;
+
+    --secondary: 200 40% 25%;
+    --secondary-foreground: 340 15% 92%;
+
+    --muted: 340 15% 15%;
+    --muted-foreground: 340 10% 65%;
+
+    --accent: 280 50% 60%;
+    --accent-foreground: 340 20% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 340 15% 92%;
+
+    --border: 340 15% 20%;
+    --input: 340 15% 15%;
+    --ring: 320 60% 70%;
+
+    /* Dark Birthday Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(320 60% 40%), hsl(200 60% 35%));
+    --gradient-secondary: linear-gradient(135deg, hsl(280 50% 30%), hsl(340 50% 30%));
+    --gradient-hero: linear-gradient(135deg, hsl(320 30% 15%) 0%, hsl(200 30% 12%) 50%, hsl(280 25% 15%) 100%);
+    --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    
+    /* Dark Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .dancing {
+    font-family: 'Dancing Script', cursive;
+  }
+}
+
+@layer components {
+  /* Birthday Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(1deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-8px) rotate(0.5deg); }
+  }
+
+  @keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+
+  @keyframes polaroid-tilt {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200px 0; }
+    100% { background-position: calc(200px + 100%) 0; }
+  }
+
+  @keyframes sparkle-twinkle {
+    0%, 100% { 
+      opacity: 0; 
+      transform: scale(0) rotate(0deg); 
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1) rotate(180deg); 
+    }
+  }
+
+  @keyframes sparkle-float {
+    0% { transform: translateY(0px) translateX(0px); }
+    25% { transform: translateY(-10px) translateX(5px); }
+    50% { transform: translateY(-5px) translateX(-3px); }
+    75% { transform: translateY(-8px) translateX(2px); }
+    100% { transform: translateY(0px) translateX(0px); }
+  }
+
+  @keyframes sparkle-pulse {
+    0%, 100% { 
+      opacity: 0.3; 
+      transform: scale(0.8); 
+    }
+    50% { 
+      opacity: 1; 
+      transform: scale(1.2); 
+    }
+  }
+
+  /* Birthday Component Styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .polaroid {
+    background: white;
+    padding: 1rem 1rem 2rem 1rem;
+    box-shadow: var(--shadow-polaroid);
+    transform: rotate(-3deg);
+    animation: polaroid-tilt 4s ease-in-out infinite;
+  }
+
+  .balloon {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .confetti {
+    animation: confetti-fall 3s linear infinite;
+  }
+
+  .fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+  }
+
+  .scale-in {
+    animation: scale-in 0.5s ease-out;
+  }
+
+  .birthday-card {
+    @apply glass-card rounded-2xl p-6 transition-all duration-300;
+  }
+
+  .birthday-card:hover {
+    @apply scale-105;
+    box-shadow: var(--shadow-hover);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    background-size: 200px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .sparkle {
+    animation: sparkle-twinkle ease-in-out infinite, sparkle-float ease-in-out infinite;
+  }
+
+  .sparkle-inner {
+    width: 100%;
+    height: 100%;
+    background: var(--sparkle-color);
+    border-radius: 50%;
+    position: relative;
+    animation: sparkle-pulse ease-in-out infinite;
+    box-shadow: 
+      0 0 6px var(--sparkle-color),
+      0 0 12px var(--sparkle-color),
+      0 0 18px var(--sparkle-color);
+  }
+
+  .sparkle-inner::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 
+      0 0 6px white,
+      0 0 12px white,
+      0 0 18px var(--sparkle-color),
+      0 0 24px var(--sparkle-color);
+  }
+
+  /* Dark mode adjustments for sparkles */
+  .dark .sparkle-inner {
+    box-shadow: 
+      0 0 8px var(--sparkle-color),
+      0 0 16px var(--sparkle-color),
+      0 0 24px var(--sparkle-color);
+  }
+
+  .dark .sparkle-inner::before {
+    box-shadow: 
+      0 0 8px white,
+      0 0 16px white,
+      0 0 24px var(--sparkle-color),
+      0 0 32px var(--sparkle-color);
+  }
+
+  .gallery-image {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-image:hover {
+    transform: scale(1.05);
+  }
+
+  .gallery-card {
+    overflow: hidden;
+    border-radius: 1rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .lightbox-image {
+    object-fit: contain;
+    object-position: center;
+    max-height: 75vh;
+    width: 100%;
+    height: auto;
+  }
+}
