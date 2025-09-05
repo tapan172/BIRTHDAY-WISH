@@ -21,7 +21,7 @@ A beautiful, fully responsive birthday wishing website built with React, TypeScr
 
 1. **Clone & Install**:
    ```bash
-   git clone https://github.com/BABIN-JOE/BIRTHDAY-WISH/tree/master.git
+   git clone https://github.com/BABIN-JOE/BIRTHDAY-WISH/tree/main.git
    cd BIRTHDAY-WISH
    npm install
    ```
